@@ -72,6 +72,7 @@
       <LastGenOutput>Traducciones.es.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Traducciones.resx" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
