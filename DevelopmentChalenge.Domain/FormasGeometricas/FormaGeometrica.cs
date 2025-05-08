@@ -1,14 +1,14 @@
 ﻿using DevelopmentChalenge.Domain.Enums;
 
-namespace DevelopmentChalenge.Domain.FormaGeometrica
+namespace DevelopmentChalenge.Domain.FormasGeometricas
 {
     public abstract class FormaGeometrica
     {
-        protected decimal _lado { get; }
+        protected decimal Lado { get; }
 
         protected FormaGeometrica(decimal lado)
         {
-            _lado = lado;
+            Lado = lado;
         }
 
         public abstract TipoFormaGeometricaEnum Tipo { get; }

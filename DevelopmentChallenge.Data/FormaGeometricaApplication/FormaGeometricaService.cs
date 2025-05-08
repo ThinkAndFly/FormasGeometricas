@@ -12,23 +12,20 @@
  */
 
 using DevelopmentChalenge.Domain.Enums;
+using DevelopmentChalenge.Domain.FormasGeometricas;
+using DevelopmentChallenge.Domain.FormasGeometricas;
+using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DevelopmentChallenge.Data.Classes
+namespace DevelopmentChallenge.Application.FormaGeometricaApplication
 {
-    public class FormaGeometrica
+    public class FormaGeometricaService
     {
-        private readonly decimal _lado;
-
-        public TipoFormaGeometricaEnum Tipo { get; set; }
-
-        public FormaGeometrica(TipoFormaGeometricaEnum tipo, decimal ancho)
+        public FormaGeometricaService()
         {
-            Tipo = tipo;
-            _lado = ancho;
         }
 
         public static string Imprimir(List<FormaGeometrica> formas, IdomasEnum idioma)
@@ -131,27 +128,18 @@ namespace DevelopmentChallenge.Data.Classes
             return string.Empty;
         }
 
-        public decimal CalcularArea()
+        public static FormaGeometrica CrearForma(TipoFormaGeometricaEnum tipo, decimal ancho)
         {
-            switch (Tipo)
+            switch (tipo)
             {
-                case TipoFormaGeometricaEnum.Cuadrado: return _lado * _lado;
-                case TipoFormaGeometricaEnum.Circulo: return (decimal)Math.PI * (_lado / 2) * (_lado / 2);
-                case TipoFormaGeometricaEnum.TrianguloEquilatero: return ((decimal)Math.Sqrt(3) / 4) * _lado * _lado;
+                case TipoFormaGeometricaEnum.Circulo:
+                    return new Circulo(ancho);
+                case TipoFormaGeometricaEnum.Cuadrado:
+                    return new Cuadrado(ancho);
+                case TipoFormaGeometricaEnum.TrianguloEquilatero:
+                    return new TrianguloEquilatero(ancho);
                 default:
-                    throw new ArgumentOutOfRangeException(@"Forma desconocida");
-            }
-        }
-
-        public decimal CalcularPerimetro()
-        {
-            switch (Tipo)
-            {
-                case TipoFormaGeometricaEnum.Cuadrado: return _lado * 4;
-                case TipoFormaGeometricaEnum.Circulo: return (decimal)Math.PI * _lado;
-                case TipoFormaGeometricaEnum.TrianguloEquilatero: return _lado * 3;
-                default:
-                    throw new ArgumentOutOfRangeException(@"Forma desconocida");
+                    throw new NotImplementedException();
             }
         }
     }

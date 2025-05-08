@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.12.35728.132 d17.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentChallenge.Data", "DevelopmentChallenge.Data\DevelopmentChallenge.Data.csproj", "{B21A8F24-C7E0-4E69-B1D7-B424237DC216}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentChallenge.Application", "DevelopmentChallenge.Data\DevelopmentChallenge.Application.csproj", "{B21A8F24-C7E0-4E69-B1D7-B424237DC216}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentChallenge.Data.Tests", "DevelopmentChallenge.Data.Tests\DevelopmentChallenge.Data.Tests.csproj", "{CAC2DC96-0AEF-48C0-A6E4-07EF206B860A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentChallenge.Application.Tests", "DevelopmentChallenge.Data.Tests\DevelopmentChallenge.Application.Tests.csproj", "{CAC2DC96-0AEF-48C0-A6E4-07EF206B860A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevelopmentChalenge.Domain", "DevelopmentChalenge.Domain\DevelopmentChalenge.Domain.csproj", "{9F9411DF-7BBB-4062-8B0E-7820D195F876}"
 EndProject

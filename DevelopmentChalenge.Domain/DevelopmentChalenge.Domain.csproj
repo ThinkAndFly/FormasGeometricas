@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Enums\IdomasEnum.cs" />
     <Compile Include="Enums\TipoFormaGeometricaEnum.cs" />
+    <Compile Include="FormasGeometricas\Circulo.cs" />
+    <Compile Include="FormasGeometricas\Cuadrado.cs" />
+    <Compile Include="FormasGeometricas\FormaGeometrica.cs" />
+    <Compile Include="FormasGeometricas\TrianguloEquilatero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="FormaGeometrica\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
