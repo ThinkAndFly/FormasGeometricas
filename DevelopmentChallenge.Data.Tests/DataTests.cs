@@ -2,6 +2,7 @@
 using DevelopmentChalenge.Domain.FormasGeometricas;
 using DevelopmentChallenge.Application.FormaGeometricaApplication;
 using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace DevelopmentChallenge.Application.Tests
@@ -43,9 +44,9 @@ namespace DevelopmentChallenge.Application.Tests
         [TestCase]
         public void TestResumenListaConUnRectangulo()
         {
-            var cuadrados = new List<FormaGeometrica> { FormaGeometricaService.CrearForma(TipoFormaGeometricaEnum.Rectangulo, 5,4) };
+            var rectangulos = new List<FormaGeometrica> { FormaGeometricaService.CrearForma(TipoFormaGeometricaEnum.Rectangulo, 5,4) };
 
-            var resumen = FormaGeometricaService.Imprimir(cuadrados, IdomasEnum.Castellano);
+            var resumen = FormaGeometricaService.Imprimir(rectangulos, IdomasEnum.Castellano);
 
             Assert.AreEqual("<h1>Reporte de Formas</h1>1 Rectángulo | Area 20 | Perimetro 18 <br/>TOTAL:<br/>1 formas Perimetro 18 Area 20", resumen);
         }
@@ -128,6 +129,15 @@ namespace DevelopmentChallenge.Application.Tests
             Assert.AreEqual(
                 "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
                 resumen);
+        }
+
+        [TestCase]
+        public void TestCrearUnRectanguloSinLado()
+        {
+            var ex = Assert.Throws<NotImplementedException>(() =>
+            {
+                new List<FormaGeometrica> { FormaGeometricaService.CrearForma(TipoFormaGeometricaEnum.Rectangulo, 5) };
+            });
         }
     }
 }
