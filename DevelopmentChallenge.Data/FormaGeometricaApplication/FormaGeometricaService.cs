@@ -14,7 +14,6 @@
 using DevelopmentChalenge.Domain.Enums;
 using DevelopmentChalenge.Domain.FormasGeometricas;
 using DevelopmentChallenge.Domain.FormasGeometricas;
-using Microsoft.SqlServer.Server;
 using System;
 using System.Collections.Generic;
 using System.Linq;

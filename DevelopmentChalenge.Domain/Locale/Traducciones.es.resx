@@ -141,6 +141,12 @@
   <data name="Perimetro" xml:space="preserve">
     <value>Perimetro</value>
   </data>
+  <data name="Rectangulo" xml:space="preserve">
+    <value>Rectángulo</value>
+  </data>
+  <data name="Rectangulos" xml:space="preserve">
+    <value>Rectángulos</value>
+  </data>
   <data name="ReporteFormas" xml:space="preserve">
     <value>Reporte de Formas</value>
   </data>
