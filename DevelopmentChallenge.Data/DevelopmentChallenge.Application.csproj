@@ -7,8 +7,8 @@
     <ProjectGuid>{B21A8F24-C7E0-4E69-B1D7-B424237DC216}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DevelopmentChallenge.Data</RootNamespace>
-    <AssemblyName>DevelopmentChallenge.Data</AssemblyName>
+    <RootNamespace>DevelopmentChallenge.Application</RootNamespace>
+    <AssemblyName>DevelopmentChallenge.Application</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
