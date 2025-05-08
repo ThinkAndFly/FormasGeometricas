@@ -11,6 +11,7 @@
  * Una vez finalizado, hay que subir el código a un repo GIT y ofrecernos la URL para que podamos utilizar la nueva versión :).
  */
 
+using DevelopmentChalenge.Domain.DTO;
 using DevelopmentChalenge.Domain.Enums;
 using DevelopmentChalenge.Domain.FormasGeometricas;
 using DevelopmentChalenge.Domain.Locale;
@@ -42,63 +43,32 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
             }
             else
             {
-                // Hay por lo menos una forma
-                // HEADER
                 sb.Append($"<h1>{Traducciones.ReporteFormas}</h1>");
 
-                var numeroCuadrados = 0;
-                var numeroCirculos = 0;
-                var numeroTriangulos = 0;
-                var numeroRectangulos = 0;
+                var datosFormas = new Dictionary<TipoFormaGeometricaEnum, ImprimirDTO>();
 
-                var areaCuadrados = 0m;
-                var areaCirculos = 0m;
-                var areaTriangulos = 0m;
-                var areaRectangulos = 0m;
-
-                var perimetroCuadrados = 0m;
-                var perimetroCirculos = 0m;
-                var perimetroTriangulos = 0m;
-                var perimetroRectangulos = 0m;
+                foreach (TipoFormaGeometricaEnum tipo in Enum.GetValues(typeof(TipoFormaGeometricaEnum)))
+                {
+                    datosFormas.Add(tipo, new ImprimirDTO());
+                }
 
                 for (var i = 0; i < formas.Count; i++)
                 {
-                    if (formas[i].Tipo == TipoFormaGeometricaEnum.Cuadrado)
-                    {
-                        numeroCuadrados++;
-                        areaCuadrados += formas[i].CalcularArea();
-                        perimetroCuadrados += formas[i].CalcularPerimetro();
-                    }
-                    if (formas[i].Tipo == TipoFormaGeometricaEnum.Circulo)
-                    {
-                        numeroCirculos++;
-                        areaCirculos += formas[i].CalcularArea();
-                        perimetroCirculos += formas[i].CalcularPerimetro();
-                    }
-                    if (formas[i].Tipo == TipoFormaGeometricaEnum.TrianguloEquilatero)
-                    {
-                        numeroTriangulos++;
-                        areaTriangulos += formas[i].CalcularArea();
-                        perimetroTriangulos += formas[i].CalcularPerimetro();
-                    }
-                    if (formas[i].Tipo == TipoFormaGeometricaEnum.Rectangulo)
-                    {
-                        numeroRectangulos++;
-                        areaRectangulos += formas[i].CalcularArea();
-                        perimetroRectangulos += formas[i].CalcularPerimetro();
-                    }
+                    datosFormas[formas[i].Tipo].Numero++;
+                    datosFormas[formas[i].Tipo].Area += formas[i].CalcularArea();
+                    datosFormas[formas[i].Tipo].Perimetro += formas[i].CalcularPerimetro();
                 }
 
-                sb.Append(ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, TipoFormaGeometricaEnum.Cuadrado));
-                sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, TipoFormaGeometricaEnum.Circulo));
-                sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, TipoFormaGeometricaEnum.TrianguloEquilatero));
-                sb.Append(ObtenerLinea(numeroRectangulos, areaRectangulos, perimetroRectangulos, TipoFormaGeometricaEnum.Rectangulo));
+                foreach(TipoFormaGeometricaEnum tipo in Enum.GetValues(typeof(TipoFormaGeometricaEnum)))
+                {
+                    sb.Append(ObtenerLinea(datosFormas[tipo].Numero, datosFormas[tipo].Area, datosFormas[tipo].Perimetro, tipo));
+                }
 
                 // FOOTER
                 sb.Append($"{Traducciones.Total}:<br/>");
-                sb.Append($"{numeroCuadrados + numeroCirculos + numeroTriangulos + numeroRectangulos} {Traducciones.Formas} ");
-                sb.Append($"{Traducciones.Perimetro} {(perimetroCuadrados + perimetroTriangulos + perimetroCirculos + perimetroRectangulos):#.##} ");
-                sb.Append($"{Traducciones.Area} {(areaCuadrados + areaCirculos + areaTriangulos + areaRectangulos):#.##}");
+                sb.Append($"{datosFormas.Sum(f => f.Value.Numero)} {Traducciones.Formas} ");
+                sb.Append($"{Traducciones.Perimetro} {(datosFormas.Sum(f => f.Value.Perimetro)):#.##} ");
+                sb.Append($"{Traducciones.Area} {(datosFormas.Sum(f => f.Value.Area)):#.##}");
             }
 
             return sb.ToString();
@@ -120,10 +90,10 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
             {
                 case TipoFormaGeometricaEnum.Cuadrado:
                     return cantidad == 1 ? Traducciones.Cuadrado : Traducciones.Cuadrados;
-                case TipoFormaGeometricaEnum.Circulo:
-                     return cantidad == 1 ? Traducciones.Circulo : Traducciones.Circulos;
                 case TipoFormaGeometricaEnum.TrianguloEquilatero:
                     return cantidad == 1 ? Traducciones.Triangulo : Traducciones.Triangulos;
+                case TipoFormaGeometricaEnum.Circulo:
+                    return cantidad == 1 ? Traducciones.Circulo : Traducciones.Circulos;
                 case TipoFormaGeometricaEnum.Rectangulo:
                     return cantidad == 1 ? Traducciones.Rectangulo : Traducciones.Rectangulos;
             }

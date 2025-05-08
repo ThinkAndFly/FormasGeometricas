@@ -83,7 +83,7 @@ namespace DevelopmentChallenge.Application.Tests
             var resumen = FormaGeometricaService.Imprimir(formas, IdomasEnum.Ingles);
 
             Assert.AreEqual(
-                "<h1>Shapes Report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
+                "<h1>Shapes Report</h1>2 Squares | Area 29 | Perimeter 28 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>TOTAL:<br/>7 shapes Perimeter 97,66 Area 91,65",
                 resumen);
         }
 
@@ -106,7 +106,7 @@ namespace DevelopmentChallenge.Application.Tests
             var resumen = FormaGeometricaService.Imprimir(formas, IdomasEnum.Ingles);
 
             Assert.AreEqual(
-                "<h1>Shapes Report</h1>2 Squares | Area 29 | Perimeter 28 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>2 Rectangles | Area 26 | Perimeter 28 <br/>TOTAL:<br/>9 shapes Perimeter 125,66 Area 117,65",
+                "<h1>Shapes Report</h1>2 Squares | Area 29 | Perimeter 28 <br/>3 Triangles | Area 49,64 | Perimeter 51,6 <br/>2 Circles | Area 13,01 | Perimeter 18,06 <br/>2 Rectangles | Area 26 | Perimeter 28 <br/>TOTAL:<br/>9 shapes Perimeter 125,66 Area 117,65",
                 resumen);
         }
 
@@ -127,7 +127,7 @@ namespace DevelopmentChallenge.Application.Tests
             var resumen = FormaGeometricaService.Imprimir(formas, IdomasEnum.Castellano);
 
             Assert.AreEqual(
-                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
+                "<h1>Reporte de Formas</h1>2 Cuadrados | Area 29 | Perimetro 28 <br/>3 Triángulos | Area 49,64 | Perimetro 51,6 <br/>2 Círculos | Area 13,01 | Perimetro 18,06 <br/>TOTAL:<br/>7 formas Perimetro 97,66 Area 91,65",
                 resumen);
         }
 

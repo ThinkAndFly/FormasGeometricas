@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\ImprimirDTO.cs" />
     <Compile Include="Enums\IdomasEnum.cs" />
     <Compile Include="Enums\TipoFormaGeometricaEnum.cs" />
     <Compile Include="FormasGeometricas\Circulo.cs" />
