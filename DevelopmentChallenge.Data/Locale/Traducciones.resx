@@ -121,36 +121,36 @@
     <value>Area</value>
   </data>
   <data name="Circulo" xml:space="preserve">
-    <value>Cicle</value>
+    <value>Circulo</value>
   </data>
   <data name="Circulos" xml:space="preserve">
-    <value>Circles</value>
+    <value>Circulos</value>
   </data>
   <data name="Cuadrado" xml:space="preserve">
-    <value>Square</value>
+    <value>Cuadrados</value>
   </data>
   <data name="Forma" xml:space="preserve">
-    <value>Shape</value>
+    <value>Forma</value>
   </data>
   <data name="Formas" xml:space="preserve">
-    <value>Shapes</value>
+    <value>Formas</value>
   </data>
   <data name="ListaVacia" xml:space="preserve">
-    <value>Empty list of shapes!</value>
+    <value>Lista vacía de formas!</value>
   </data>
   <data name="Perimetro" xml:space="preserve">
-    <value>Perimeter</value>
+    <value>Perimetro</value>
   </data>
   <data name="ReporteFormas" xml:space="preserve">
-    <value>Shape Report</value>
+    <value>Reporte de Formas</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>TOTAL</value>
   </data>
   <data name="Triangulo" xml:space="preserve">
-    <value>Triangle</value>
+    <value>Triangulo</value>
   </data>
   <data name="Triangulos" xml:space="preserve">
-    <value>Triangles</value>
+    <value>Triangulos</value>
   </data>
 </root>
