@@ -45,41 +45,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FormaGeometricaApplication\FormaGeometricaService.cs" />
-    <Compile Include="Locale\Traducciones.it.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Traducciones.it.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Locale\Traducciones.es.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Traducciones.es.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Locale\Traducciones.en.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Traducciones.en.resx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Locale\Traducciones.it.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Traducciones.it.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locale\Traducciones.es.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Traducciones.es.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Locale\Traducciones.resx" />
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Locale\Traducciones.en.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Traducciones.en.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DevelopmentChalenge.Domain\DevelopmentChalenge.Domain.csproj">

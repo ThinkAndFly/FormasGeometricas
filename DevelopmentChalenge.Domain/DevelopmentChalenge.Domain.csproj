@@ -47,8 +47,38 @@
     <Compile Include="FormasGeometricas\Cuadrado.cs" />
     <Compile Include="FormasGeometricas\FormaGeometrica.cs" />
     <Compile Include="FormasGeometricas\TrianguloEquilatero.cs" />
+    <Compile Include="Locale\Traducciones.en.Designer.cs">
+      <DependentUpon>Traducciones.en.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Locale\Traducciones.es.Designer.cs">
+      <DependentUpon>Traducciones.es.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Locale\Traducciones.it.Designer.cs">
+      <DependentUpon>Traducciones.it.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Locale\Traducciones.en.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Traducciones.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Traducciones.es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Traducciones.es.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Traducciones.it.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Traducciones.it.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Traducciones.resx" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
