@@ -49,14 +49,17 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
                 var numeroCuadrados = 0;
                 var numeroCirculos = 0;
                 var numeroTriangulos = 0;
+                var numeroRectangulos = 0;
 
                 var areaCuadrados = 0m;
                 var areaCirculos = 0m;
                 var areaTriangulos = 0m;
+                var areaRectangulos = 0m;
 
                 var perimetroCuadrados = 0m;
                 var perimetroCirculos = 0m;
                 var perimetroTriangulos = 0m;
+                var perimetroRectangulos = 0m;
 
                 for (var i = 0; i < formas.Count; i++)
                 {
@@ -78,17 +81,24 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
                         areaTriangulos += formas[i].CalcularArea();
                         perimetroTriangulos += formas[i].CalcularPerimetro();
                     }
+                    if (formas[i].Tipo == TipoFormaGeometricaEnum.Rectangulo)
+                    {
+                        numeroRectangulos++;
+                        areaRectangulos += formas[i].CalcularArea();
+                        perimetroRectangulos += formas[i].CalcularPerimetro();
+                    }
                 }
 
                 sb.Append(ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, TipoFormaGeometricaEnum.Cuadrado));
                 sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, TipoFormaGeometricaEnum.Circulo));
                 sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, TipoFormaGeometricaEnum.TrianguloEquilatero));
+                sb.Append(ObtenerLinea(numeroRectangulos, areaRectangulos, perimetroRectangulos, TipoFormaGeometricaEnum.Rectangulo));
 
                 // FOOTER
                 sb.Append($"{Traducciones.Total}:<br/>");
-                sb.Append($"{numeroCuadrados + numeroCirculos + numeroTriangulos} {Traducciones.Formas} ");
-                sb.Append($"{Traducciones.Perimetro} {(perimetroCuadrados + perimetroTriangulos + perimetroCirculos):#.##} ");
-                sb.Append($"{Traducciones.Area} {(areaCuadrados + areaCirculos + areaTriangulos):#.##} ");
+                sb.Append($"{numeroCuadrados + numeroCirculos + numeroTriangulos + numeroRectangulos} {Traducciones.Formas} ");
+                sb.Append($"{Traducciones.Perimetro} {(perimetroCuadrados + perimetroTriangulos + perimetroCirculos + perimetroRectangulos):#.##} ");
+                sb.Append($"{Traducciones.Area} {(areaCuadrados + areaCirculos + areaTriangulos + areaRectangulos):#.##}");
             }
 
             return sb.ToString();

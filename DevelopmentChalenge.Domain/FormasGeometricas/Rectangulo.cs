@@ -14,7 +14,7 @@ namespace DevelopmentChalenge.Domain.FormasGeometricas
 
         public override decimal CalcularArea()
         {
-            return Lado * Lado;
+            return Lado * Lado2;
         }
 
         public override decimal CalcularPerimetro()

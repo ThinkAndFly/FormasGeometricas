@@ -136,10 +136,10 @@
     <value>Forma</value>
   </data>
   <data name="Formas" xml:space="preserve">
-    <value>Formas</value>
+    <value>formas</value>
   </data>
   <data name="ListaVacia" xml:space="preserve">
-    <value>Lista vacia de formas!</value>
+    <value>Lista vacía de formas!</value>
   </data>
   <data name="Perimetro" xml:space="preserve">
     <value>Perimetro</value>

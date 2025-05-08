@@ -160,7 +160,7 @@ namespace DevelopmentChalenge.Domain.Locale {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Shape Report.
+        ///   Busca una cadena traducida similar a Shapes report.
         /// </summary>
         public static string ReporteFormas {
             get {

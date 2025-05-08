@@ -136,7 +136,7 @@
     <value>Shape</value>
   </data>
   <data name="Formas" xml:space="preserve">
-    <value>Shapes</value>
+    <value>shapes</value>
   </data>
   <data name="ListaVacia" xml:space="preserve">
     <value>Empty list of shapes!</value>
@@ -151,7 +151,7 @@
     <value>Rectangles</value>
   </data>
   <data name="ReporteFormas" xml:space="preserve">
-    <value>Shape Report</value>
+    <value>Shapes Report</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>TOTAL</value>
