@@ -13,11 +13,14 @@
 
 using DevelopmentChalenge.Domain.Enums;
 using DevelopmentChalenge.Domain.FormasGeometricas;
+using DevelopmentChalenge.Domain.Locale;
 using DevelopmentChallenge.Domain.FormasGeometricas;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace DevelopmentChallenge.Application.FormaGeometricaApplication
 {
@@ -29,24 +32,19 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
 
         public static string Imprimir(List<FormaGeometrica> formas, IdomasEnum idioma)
         {
+            SetearIdioma(idioma);
+
             var sb = new StringBuilder();
 
             if (!formas.Any())
             {
-                if (idioma == IdomasEnum.Castellano)
-                    sb.Append("<h1>Lista vacía de formas!</h1>");
-                else
-                    sb.Append("<h1>Empty list of shapes!</h1>");
+                sb.Append($"<h1>{Traducciones.ListaVacia}</h1>");
             }
             else
             {
                 // Hay por lo menos una forma
                 // HEADER
-                if (idioma == IdomasEnum.Castellano)
-                    sb.Append("<h1>Reporte de Formas</h1>");
-                else
-                    // default es inglés
-                    sb.Append("<h1>Shapes report</h1>");
+                sb.Append($"<h1>{Traducciones.ReporteFormas}</h1>");
 
                 var numeroCuadrados = 0;
                 var numeroCirculos = 0;
@@ -81,47 +79,43 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
                         perimetroTriangulos += formas[i].CalcularPerimetro();
                     }
                 }
-                
-                sb.Append(ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, TipoFormaGeometricaEnum.Cuadrado, idioma));
-                sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, TipoFormaGeometricaEnum.Circulo, idioma));
-                sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, TipoFormaGeometricaEnum.TrianguloEquilatero, idioma));
+
+                sb.Append(ObtenerLinea(numeroCuadrados, areaCuadrados, perimetroCuadrados, TipoFormaGeometricaEnum.Cuadrado));
+                sb.Append(ObtenerLinea(numeroCirculos, areaCirculos, perimetroCirculos, TipoFormaGeometricaEnum.Circulo));
+                sb.Append(ObtenerLinea(numeroTriangulos, areaTriangulos, perimetroTriangulos, TipoFormaGeometricaEnum.TrianguloEquilatero));
 
                 // FOOTER
-                sb.Append("TOTAL:<br/>");
-                sb.Append(numeroCuadrados + numeroCirculos + numeroTriangulos + " " + (idioma == IdomasEnum.Castellano ? "formas" : "shapes") + " ");
-                sb.Append((idioma == IdomasEnum.Castellano ? "Perimetro " : "Perimeter ") + (perimetroCuadrados + perimetroTriangulos + perimetroCirculos).ToString("#.##") + " ");
-                sb.Append("Area " + (areaCuadrados + areaCirculos + areaTriangulos).ToString("#.##"));
+                sb.Append($"{Traducciones.Total}:<br/>");
+                sb.Append($"{numeroCuadrados + numeroCirculos + numeroTriangulos} {Traducciones.Formas} ");
+                sb.Append($"{Traducciones.Perimetro} {(perimetroCuadrados + perimetroTriangulos + perimetroCirculos):#.##} ");
+                sb.Append($"{Traducciones.Area} {(areaCuadrados + areaCirculos + areaTriangulos):#.##} ");
             }
 
             return sb.ToString();
         }
 
-        private static string ObtenerLinea(int cantidad, decimal area, decimal perimetro, TipoFormaGeometricaEnum tipo, IdomasEnum idioma)
+        private static string ObtenerLinea(int cantidad, decimal area, decimal perimetro, TipoFormaGeometricaEnum tipo)
         {
             if (cantidad > 0)
             {
-                if (idioma == IdomasEnum.Castellano)
-                    return $"{cantidad} {TraducirForma(tipo, cantidad, idioma)} | Area {area:#.##} | Perimetro {perimetro:#.##} <br/>";
-
-                return $"{cantidad} {TraducirForma(tipo, cantidad, idioma)} | Area {area:#.##} | Perimeter {perimetro:#.##} <br/>";
+                return $"{cantidad} {TraducirForma(tipo, cantidad)} | {Traducciones.Area} {area:#.##} | {Traducciones.Perimetro} {perimetro:#.##} <br/>";
             }
 
             return string.Empty;
         }
 
-        private static string TraducirForma(TipoFormaGeometricaEnum tipo, int cantidad, IdomasEnum idioma)
+        private static string TraducirForma(TipoFormaGeometricaEnum tipo, int cantidad)
         {
             switch (tipo)
             {
                 case TipoFormaGeometricaEnum.Cuadrado:
-                    if (idioma == IdomasEnum.Castellano) return cantidad == 1 ? "Cuadrado" : "Cuadrados";
-                    else return cantidad == 1 ? "Square" : "Squares";
+                    return cantidad == 1 ? Traducciones.Cuadrado : Traducciones.Cuadrados;
                 case TipoFormaGeometricaEnum.Circulo:
-                    if (idioma == IdomasEnum.Castellano) return cantidad == 1 ? "Círculo" : "Círculos";
-                    else return cantidad == 1 ? "Circle" : "Circles";
+                     return cantidad == 1 ? Traducciones.Circulo : Traducciones.Circulos;
                 case TipoFormaGeometricaEnum.TrianguloEquilatero:
-                    if (idioma == IdomasEnum.Castellano) return cantidad == 1 ? "Triángulo" : "Triángulos";
-                    else return cantidad == 1 ? "Triangle" : "Triangles";
+                    return cantidad == 1 ? Traducciones.Triangulo : Traducciones.Triangulos;
+                case TipoFormaGeometricaEnum.Rectangulo:
+                    return cantidad == 1 ? Traducciones.Rectangulo : Traducciones.Rectangulos;
             }
 
             return string.Empty;
@@ -139,6 +133,33 @@ namespace DevelopmentChallenge.Application.FormaGeometricaApplication
                     return new TrianguloEquilatero(ancho);
                 default:
                     throw new NotImplementedException();
+            }
+        }
+
+        public static FormaGeometrica CrearForma(TipoFormaGeometricaEnum tipo, decimal ancho, decimal largo)
+        {
+            switch (tipo)
+            {
+                case TipoFormaGeometricaEnum.Rectangulo:
+                    return new Rectangulo(ancho, largo);
+                default:
+                    throw new NotImplementedException();
+            }
+        }
+
+        private static void SetearIdioma(IdomasEnum idioma)
+        {
+            switch(idioma)
+            {
+                case IdomasEnum.Castellano:
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("es");
+                    break;
+                case IdomasEnum.Ingles:
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+                    break;
+                case IdomasEnum.Italiano:
+                    Thread.CurrentThread.CurrentUICulture = new CultureInfo("it");
+                    break;
             }
         }
     }

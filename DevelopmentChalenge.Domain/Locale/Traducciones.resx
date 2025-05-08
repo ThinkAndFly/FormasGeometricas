@@ -121,42 +121,45 @@
     <value>Area</value>
   </data>
   <data name="Circulo" xml:space="preserve">
-    <value>Circulo</value>
+    <value>Circle</value>
   </data>
   <data name="Circulos" xml:space="preserve">
-    <value>Circulos</value>
+    <value>Circles</value>
   </data>
   <data name="Cuadrado" xml:space="preserve">
-    <value>Cuadrados</value>
+    <value>Square</value>
+  </data>
+  <data name="Cuadrados" xml:space="preserve">
+    <value>Squares</value>
   </data>
   <data name="Forma" xml:space="preserve">
-    <value>Forma</value>
+    <value>Shape</value>
   </data>
   <data name="Formas" xml:space="preserve">
-    <value>Formas</value>
+    <value>Shapes</value>
   </data>
   <data name="ListaVacia" xml:space="preserve">
-    <value>Lista vacía de formas!</value>
+    <value>Empty list of shapes!</value>
   </data>
   <data name="Perimetro" xml:space="preserve">
-    <value>Perimetro</value>
+    <value>Perimeter</value>
   </data>
   <data name="Rectangulo" xml:space="preserve">
-    <value>Rectangulo</value>
+    <value>Rectangle</value>
   </data>
   <data name="Rectangulos" xml:space="preserve">
-    <value>Rectangulos</value>
+    <value>Rectangles</value>
   </data>
   <data name="ReporteFormas" xml:space="preserve">
-    <value>Reporte de Formas</value>
+    <value>Shape Report</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>TOTAL</value>
   </data>
   <data name="Triangulo" xml:space="preserve">
-    <value>Triangulo</value>
+    <value>Triangle</value>
   </data>
   <data name="Triangulos" xml:space="preserve">
-    <value>Triangulos</value>
+    <value>Triangles</value>
   </data>
 </root>

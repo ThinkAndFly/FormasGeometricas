@@ -9,6 +9,7 @@ namespace DevelopmentChalenge.Domain.Enums
     public enum IdomasEnum
     {
         Castellano = 1,
-        Ingles = 2
+        Ingles = 2,
+        Italiano = 3
     }
 }
