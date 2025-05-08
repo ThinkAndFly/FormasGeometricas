@@ -58,6 +58,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DevelopmentChalenge.Domain\DevelopmentChalenge.Domain.csproj">
+      <Project>{9F9411DF-7BBB-4062-8B0E-7820D195F876}</Project>
+      <Name>DevelopmentChalenge.Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DevelopmentChallenge.Data\DevelopmentChallenge.Data.csproj">
       <Project>{b21a8f24-c7e0-4e69-b1d7-b424237dc216}</Project>
       <Name>DevelopmentChallenge.Data</Name>

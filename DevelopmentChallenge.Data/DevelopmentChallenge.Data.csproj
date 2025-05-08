@@ -45,6 +45,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FormaGeometrica.cs" />
+    <Compile Include="Locale\Traducciones.it.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Traducciones.it.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Locale\Traducciones.es.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Traducciones.es.resx</DependentUpon>
+    </Compile>
     <Compile Include="Locale\Traducciones.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -53,6 +63,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Locale\Traducciones.it.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Traducciones.it.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Locale\Traducciones.es.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Traducciones.es.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -60,7 +79,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Traducciones.en.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Locale\Traducciones.it.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DevelopmentChalenge.Domain\DevelopmentChalenge.Domain.csproj">
+      <Project>{9F9411DF-7BBB-4062-8B0E-7820D195F876}</Project>
+      <Name>DevelopmentChalenge.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
